@@ -1,5 +1,6 @@
 package com.example.ultimatemovieapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +15,12 @@ class MainActivity : AppCompatActivity() {
         val boton = findViewById<Button>(R.id.btn_accion)
 
         boton.setOnClickListener {
-            texto.text = "Curso Android"
+            navegarSegundaActivity()
         }
+    }
+
+    private fun navegarSegundaActivity(){
+        val intent = Intent(this,SegundaActivity::class.java)
+        startActivity(intent)
     }
 }
