@@ -1,5 +1,6 @@
 package com.example.ultimatemovieapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,43 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("Lifecycle","OnCreate")
-
         val texto =  findViewById<TextView>(R.id.tv_output)
         val btnAction = findViewById<Button>(R.id.btn_action)
 
         btnAction.setOnClickListener {
-            texto.text = "Curso Android"
+            navigateSecondActivity()
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d("Lifecycle","OnStart")
+    private fun navigateSecondActivity(){
+        val intent = Intent(this, SecondActivity::class.java)
+        startActivity(intent)
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d("Lifecycle","OnResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("Lifecycle","OnPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("Lifecycle","OnStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d("Lifecycle","OnRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("Lifecycle","OnDestroy")
-    }
 }
